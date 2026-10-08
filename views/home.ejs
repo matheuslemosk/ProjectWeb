@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+
+<h2>Itens reportados</h2>
+
+<% if (itens.length === 0) { %>
+  <p>Nenhum item cadastrado ainda.</p>
+<% } else { %>
+  <div class="grade">
+    <% itens.forEach(function(item) { %>
+      <div class="card">
+        <h3><%= item.nome %></h3>
+        <p><strong>Local:</strong> <%= item.local_encontrado %></p>
+        <p><strong>Data:</strong> <%= new Date(item.data_encontrado).toLocaleDateString('pt-BR') %></p>
+        <span class="status <%= item.status === 'Devolvido' ? 'devolvido' : 'aguardando' %>">
+          <%= item.status %>
+        </span>
+        <a class="botao" href="/item/<%= item.id %>">Ver detalhes</a>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include('partials/footer') %>

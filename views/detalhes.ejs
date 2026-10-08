@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<div class="detalhe">
+  <h2><%= item.nome %></h2>
+  <p><strong>Descrição:</strong> <%= item.descricao %></p>
+  <p><strong>Categoria:</strong> <%= item.categoria %></p>
+  <p><strong>Local onde foi encontrado:</strong> <%= item.local_encontrado %></p>
+  <p><strong>Data:</strong> <%= new Date(item.data_encontrado).toLocaleDateString('pt-BR') %></p>
+  <p>
+    <strong>Status:</strong>
+    <span class="status <%= item.status === 'Devolvido' ? 'devolvido' : 'aguardando' %>"><%= item.status %></span>
+  </p>
+  <p>Para retirar o item, procure a secretaria da escola.</p>
+  <a class="botao" href="/">Voltar</a>
+</div>
+
+<%- include('partials/footer') %>
